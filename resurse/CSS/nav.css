@@ -1,0 +1,134 @@
+/* Stilizare pentru header și navigare */
+header {
+    padding: 1rem;
+    position: relative;
+}
+
+/* Stilizare pentru titluri în header */
+header h1 {
+    font-size: 2rem;
+    margin: 0 0 0.5rem 0;
+}
+
+header h2 {
+    font-size: 1rem;
+    margin: 0.5rem 0 1rem 0;
+    font-weight: normal;
+}
+
+/* Navigare orizontală */
+nav {
+    width: 100%;
+    background-color: #3a3a3a;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    margin: 0;
+    position: relative;
+}
+
+nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    transition: background-color 0.3s;
+    font-family: "Boldonse", system-ui;
+    font-weight: 400;
+}
+
+nav a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+/* Adăugăm un efect de hover cu linie sub text */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 10px;
+    left: 50%;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 70%;
+    left: 15%;
+}
+
+/* Stil pentru link-ul paginii active */
+nav a.active {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+/* Media queries pentru responsivitate */
+@media screen and (min-width: 768px) {
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+    header h1, header h2 {
+        width: 100%;
+    }
+    
+    nav {
+        width: auto;
+        margin-top: 0;
+        align-self: flex-end;
+    }
+}
+
+/* Pentru ecrane foarte mici, facem meniul vertical */
+@media screen and (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+    }
+    
+    nav li {
+        margin: 0;
+        border-bottom: 1px solid #555;
+    }
+    
+    nav li:last-child {
+        border-bottom: none;
+    }
+    
+    /* Dezactivare animații pe ecrane mici - implementarea cerinței 3 */
+    nav a::after {
+        display: none; /* Dezactivează linia animată de sub linkuri */
+    }
+    
+    nav a {
+        transition: none; /* Dezactivează tranziția de culoare */
+    }
+}
+
+/* Dezactivarea animațiilor pe ecrane medii dacă se dorește */
+@media screen and (max-width: 768px) and (min-width: 601px) {
+    /* Comentați acest bloc dacă doriți să păstrați animațiile pe ecranele medii */
+    nav a::after {
+        display: none; /* Dezactivează linia animată de sub linkuri */
+    }
+    
+    nav a {
+        transition: none; /* Dezactivează tranziția de culoare */
+    }
+}

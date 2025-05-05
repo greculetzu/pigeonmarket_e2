@@ -1,0 +1,530 @@
+:root {
+    /* Variabile pentru schema de culori */
+    --primary-color: #4BCDDE; /* Culoare primară - Albastru deschis/Cyan */
+    --secondary-color: #4BDEBE; /* Culoare secundară - Turcoaz */
+    --accent-color-1: #4B9FDE; /* Culoare accent - Albastru cer */
+    --accent-color-2: #4BDE8D; /* Culoare accent - Verde mediu */
+    --accent-color-3: #466DE0; /* Culoare accent - Albastru royal */
+    --accent-color-4: #6BD4E1; /* Culoare accent - Cyan deschis */
+    
+    /* Variabile funcționale pentru culori */
+    --background-color: #466DE0;
+    --header-bg-color: var(--accent-color-3);
+    --footer-bg-color: var(--accent-color-4);
+    --text-color: #333;
+    --heading-color: #000;
+    --link-color: var(--accent-color-3);
+    --link-hover-color: var(--accent-color-2);
+    --border-color: #000;
+    --highlight-color: var(--accent-color-2);
+    --box-shadow-color: rgba(0, 0, 0, 0.3);
+    
+    /* Culori pentru zonele din grid */
+    --zona1-bg-color: var(--accent-color-1);
+    --zona2-bg-color: var(--secondary-color);
+    --zona3-bg-color: var(--accent-color-4);
+    --zona4-bg-color: var(--accent-color-2);
+    --zona5-bg-color: var(--primary-color);
+    --zona6-bg-color: var(--accent-color-1);
+    --zona7-bg-color: var(--accent-color-2);
+    --zona8-bg-color: var(--secondary-color);
+    
+    /* Variabile pentru layout */
+    --padding-page: 5vw;
+    --grid-gap: 1rem;
+    --padding-text: 1rem;
+    --border-radius: 10px;
+}
+
+@media (max-width: 1024px) {
+    :root {
+        --padding-page: 3vw;
+        --grid-gap: 0.8rem;
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --padding-page: 2vw;
+        --grid-gap: 0.6rem;
+        font-size: 0.9em;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: font-size 0.3s ease; /* Adăugare tranziție pentru redimensionarea textului */
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--padding-page);
+}
+
+/* Stilizare header */
+.header {
+    background-color: var(--header-bg-color);
+    color: white;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    box-shadow: 0 3px 6px var(--box-shadow-color);
+}
+
+.header h1, .header h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin: 0 0.5rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: var(--highlight-color);
+}
+
+/* Container grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    gap: var(--grid-gap);
+    margin-bottom: 1rem;
+}
+
+/* Stilizare de bază pentru toate zonele */
+.zona {
+    padding: var(--padding-text);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px var(--box-shadow-color);
+    overflow: hidden;
+}
+
+/* Stilizare specifică fiecărei zone */
+.zona1 {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    background-color: var(--zona1-bg-color);
+    color: white;
+}
+
+.zona2 {
+    grid-column: 4 / 10;
+    grid-row: 2 / 4;
+    background-color: var(--zona2-bg-color);
+}
+
+.zona3 {
+    grid-column: 1 / 4;
+    grid-row: 2;
+    background-color: var(--zona3-bg-color);
+}
+
+.zona4 {
+    grid-column: 10 / 13;
+    grid-row: 2;
+    background-color: var(--zona4-bg-color);
+}
+
+.zona5 {
+    grid-column: 1 / 4;
+    grid-row: 3;
+    background-color: var(--zona5-bg-color);
+}
+
+.zona6 {
+    grid-column: 4 / 10;
+    grid-row: 4;
+    background-color: var(--zona6-bg-color);
+    color: white;
+}
+
+.zona7 {
+    grid-column: 10 / 13;
+    grid-row: 3 / 5;
+    background-color: var(--zona7-bg-color);
+}
+
+.zona8 {
+    grid-column: 1 / -1;
+    grid-row: 5;
+    background-color: var(--zona8-bg-color);
+}
+
+/* Stilizare footer */
+.footer {
+    background-color: var(--footer-bg-color);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-top: 1rem;
+    text-align: center;
+    box-shadow: 0 -3px 6px var(--box-shadow-color);
+}
+
+.footer a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+    color: var(--link-hover-color);
+}
+
+/* Stilizare text și conținut */
+h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5em;
+}
+
+h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2em;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    margin-bottom: 0.5rem;
+}
+
+figure {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+figcaption {
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+th, td {
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+th {
+    background-color: var(--accent-color-3);
+    color: white;
+}
+
+ul, ol {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+/* Layout responsiv pentru tablete */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    
+    .zona1 {
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+    
+    .zona2 {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+    
+    .zona3 {
+        grid-column: 1 / 4;
+        grid-row: 3;
+    }
+    
+    .zona4 {
+        grid-column: 4 / -1;
+        grid-row: 3;
+    }
+    
+    .zona5 {
+        grid-column: 1 / 4;
+        grid-row: 4;
+    }
+    
+    .zona6 {
+        grid-column: 4 / -1;
+        grid-row: 4;
+    }
+    
+    .zona7 {
+        grid-column: 1 / 4;
+        grid-row: 5;
+    }
+    
+    .zona8 {
+        grid-column: 4 / -1;
+        grid-row: 5;
+    }
+}
+
+/* Layout responsiv pentru telefoane */
+@media (max-width: 480px) {
+    .grid-container {
+        display: flex;
+        flex-direction: column;
+        gap: var(--grid-gap);
+    }
+    
+    .zona {
+        width: 100%;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul li {
+        margin: 0.3rem 0;
+    }
+}
+
+/* Stiluri suplimentare */
+.anunt {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.8rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+}
+
+.statistici p, .server-info p {
+    margin-bottom: 0.5rem;
+    padding: 0.3rem 0.5rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius);
+}
+
+article {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+iframe {
+    width: 100%;
+    height: 315px;
+    border: 4px solid #4BCDDE;
+    border-radius: 10px;
+    display: block;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0; /* eliminăm spațiul */
+    gap: 25px;
+}
+
+button {
+    background-color: #4BCDDE;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Caption sub tabel */
+table caption {
+    caption-side: bottom;
+    padding-top: 0.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Bordere alternate între coloane */
+table td, table th {
+    border: 1px solid #999;
+}
+
+table td:not(:last-child), table th:not(:last-child) {
+    border-right: 4px solid; /* grosime personalizată */
+}
+
+table td:nth-child(odd):not(:last-child) + td,
+table th:nth-child(odd):not(:last-child) + th {
+    border-right-color: #4caf50; /* c1 */
+}
+
+table td:nth-child(even):not(:last-child) + td,
+table th:nth-child(even):not(:last-child) + th {
+    border-right-color: #2196f3; /* c2 */
+}
+
+/* Border mai gros între thead, tbody, tfoot */
+thead tr {
+    border-bottom: 3px solid black;
+}
+
+tbody tr:last-child {
+    border-bottom: 3px solid black;
+}
+
+/* Hover cu box-shadow */
+tbody tr {
+    transition: box-shadow 0.5s ease;
+}
+
+tbody tr:hover {
+    box-shadow: inset 0 0 10px #00000088;
+}
+
+/* Responsivitate: container scrollabil */
+.table-container {
+    overflow-x: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .table-container {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        min-width: 600px;
+    }
+}
+/* Butonul de scroll fixat în colțul dreapta jos */
+/* Butonul de scroll fixat în colțul dreapta jos al footerului */
+footer {
+    position: relative; /* Pentru a referi poziția butonului în cadrul footerului */
+}
+
+.scroll-to-top {
+    position: absolute; /* Poziționat în interiorul footerului */
+    bottom: 20px; /* La 20px de la marginea de jos a footerului */
+    right: 20px; /* La 20px de la marginea din dreapta */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50px;
+    height: 50px;
+    opacity: 0.7;
+    z-index: 1000; /* Asigură că este vizibil peste alte elemente */
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+/* Tooltip */
+.tooltip {
+    display: none;
+    position: absolute;
+    top: -40px; /* Distanța între text și săgeată */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+/* Arată tooltip-ul la hover */
+.scroll-to-top:hover .tooltip {
+    display: block;
+}
+
+/* Cercul rotund cu margine punctată */
+.circle {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(to bottom, #4BCDDE, #6BD4E1, #4BCDDE); /* Gradient în culori alese */
+    border-radius: 50%;
+    border: 3px dashed #4BCDDE; /* Border punctat */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.7s ease-in-out;
+}
+
+/* Săgeata fixă */
+.arrow {
+    font-size: 2rem; /* Mărimea săgeții */
+    color: #ffffff; /* Culoare albă pentru săgeată */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto; /* Centrare orizontală și verticală */
+}
+
+/* Efectul la hover */
+.scroll-to-top:hover .circle {
+    transform: rotate(360deg); /* Rotirea cercului la hover */
+}
+
+/* Butonul devine complet opac la hover */
+.scroll-to-top:hover {
+    opacity: 1;
+}
+
+/* Modificare poziționare tooltip */
+.scroll-to-top:hover .tooltip {
+    left: 50%;
+    transform: translateX(-50%); /* Centrare text */
+}
+
+/* Stiluri de bază pentru font și poziționare */
+body {
+    font-family: Arial, sans-serif;
+    padding-bottom: 80px; /* Asigură că nu se ascunde butonul la finalul paginii */
+}
+
