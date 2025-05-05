@@ -88,30 +88,6 @@ body {
     margin-bottom: 0.5rem;
 }
 
-nav ul {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    list-style-type: none;
-}
-
-nav ul li {
-    margin: 0 0.5rem;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    display: inline-block;
-    border-radius: var(--border-radius);
-    transition: background-color 0.3s;
-}
-
-nav a:hover {
-    background-color: var(--highlight-color);
-}
-
 /* Container grid */
 .grid-container {
     display: grid;
